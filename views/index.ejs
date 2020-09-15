@@ -7,7 +7,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <link rel="icon" href="../../favicon.ico">
-      <title>WatchIt</title>
+      <title>watch-this</title>
       <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -30,9 +30,9 @@
       </div>
       <header>
          <nav>
-            <div class="nav-wrapper blue lighten-2">
+            <div class="nav-wrapper blue-grey lighten-2">
                <form>
-                  <div class="input-field">
+                  <div class="col s1 input-field">
                      <input type="search" id="search-input" name="search-input" placeholder="B6GUPLAZZAQ" autocomplete="off" required>
                      <label for="search-input" class="label-icon"><i class="material-icons">search</i></label>
                      <i class="material-icons">close</i>
@@ -45,7 +45,7 @@
          <div class="container">
             <!-- Player UI -->
             <div class="row">
-               <div class="col s12 m12 l8">
+               <div class="col s10">
                   <div id="player-ui">
                      <div class="my-auto">
                         <div id="player" class="yt-player"></div>
@@ -70,7 +70,7 @@
                               <div class="col s2 m2 l2">
                                  <form action="#" class="volume-slider">
                                     <p class="range-field">
-                                       <input type="range" id="volume" min="0" max="100">
+                                       <input type="range" id="volume" min="0" max="100" value="30">
                                     </p>
                                  </form>
                               </div>
@@ -86,46 +86,58 @@
                      </div>
                   </div>
                </div>
-               <div class="col s12 m12 l3 offset-l1">
-                  <% if (locals.room) { %>
-                  <h3>Room:
-                     <%= room %>
-                  </h3>
-                  <% } %>
+               <div class="col s4">
+				  <div class="card blue-grey lighten-2">
+					<div class="card-content white-text">
+							  <% if (locals.room) { %>
+							  <h5>Room: 
+							  <br><br>
+								 <%= room %>
+							  </h5>
+							  <% } %>
+					</div>
+				  </div>
+				  <div class="card blue-grey lighten-2">
+					<div class="card-content white-text">
                   <h4>Video information</h4>
-                  <!-- Video info -->
                   <ul id="video-info" class="demo-list-item mdl-list">
                      <li class="mdl-list__item">
-                        <p>Video title:
+                        <p><strong>Video title:</strong>
                            <span id="video-title"></span>
                         </p>
                      </li>
+					 <br>
                      <li class="mdl-list__item">
-                        <p>Video ID:
+                        <p><strong>Video ID:</strong>
                            <span id="video-id"></span>
                         </p>
                      </li>
                   </ul>
-                  <!-- /Video info -->
-                  <!-- User info -->
-                  <h4>User information</h4>
-                  <ul id="user-info">
-                     <li>
-                        <p>User watching:
-                           <span id="connected-count">0</span>
-                        </p>
-                     </li>
-                  </ul>
-                  <ul id="user-list"></ul>
-                  <!-- /User info -->
+					</div>
+				  </div>
                </div>
+			   <div class="col s6">
+				  <div class="card blue-grey lighten-2">
+					<div class="card-content white-text">
+					  <h4>User information</h4>
+					  <ul id="user-info">
+						 <li>
+							<p><strong>Users:</strong>
+							   <span id="connected-count">0</span>
+							</p>
+						 </li>
+					  </ul>
+					  <ul id="user-list"></ul>
+					</div>
+				  </div>
+			   </div>
             </div>
          </div>
       </main>
-      <footer class="page-footer blue lighten-2">
+      <footer class="page-footer blue-grey lighten-2">
          <div class="container">
             <div class="row">
-               <div class="col l4 offset-l2 s12">
+               <div class="col s1 s12">
                   <ul>
                      <li>
 						 <span class="grey-text text-lighten-3">Contact me:</span>

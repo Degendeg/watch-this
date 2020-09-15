@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 html,
 body {
   font-family: 'Roboto';
@@ -15,7 +19,7 @@ main {
 }
 
 main .container {
-  margin-top: 50px;
+  margin-top: 3vh;
 }
 
 #video-info,
@@ -32,8 +36,7 @@ main .container {
 
 h3,
 h4 {
-  color: rgb(63, 81, 181);
-  font-size: 28px;
+  font-size: 2em;
 }
 
 h4 {

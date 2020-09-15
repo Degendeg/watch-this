@@ -3,8 +3,6 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-require('dotenv').config()
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -12,7 +10,7 @@ app.set('view engine', 'ejs')
 const server = app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 const io = require('socket.io').listen(server)
 
-let players = {}
+let users = {}
 
 function joinRoom(socket, room) {
     if (socket.room) {
@@ -25,17 +23,15 @@ function joinRoom(socket, room) {
 
 app.get('/:id', (req, res) => {
     const room = req.params['id']
-    if (room != 'favicon.ico') {
-        io.on('connection', (socket) => {
-            let id = socket.id
+	io.on('connection', (socket) => {
+		let id = socket.id
 
-            joinRoom(socket, room)
-        })
+		joinRoom(socket, room)
+	})
 
-        res.render('index', {
-            room: room
-        })
-    }
+	res.render('index', {
+		room: room
+	})
 })
 
 // If user connect to normal page without id
@@ -75,14 +71,14 @@ io.on('connection', (socket) => {
 
     socket.on('userJoin', (username) => {
         if (!username) {
-            const generatedUsername = 'User ' + Object.keys(io.sockets.sockets).length
+            const generatedUsername = Math.random().toString(36).substring(7)
             username = generatedUsername
             io.to(socket.room).emit('userJoin', generatedUsername)
         } else {
             io.to(socket.room).emit('userJoin', username)
         }
 
-        players[id] = username
+        users[id] = username
         io.in(socket.room).clients((err, clients) => {
             io.to(socket.room).emit('connectedCount', clients.length)
         })
@@ -90,21 +86,21 @@ io.on('connection', (socket) => {
         io.in(socket.room).clients((err, clients) => {
             clients.forEach((clientId) => {
                 if (clientId != id) {
-                    socket.emit('userJoin', players[clientId])
+                    socket.emit('userJoin', users[clientId])
                 }
             })
         })
     })
 
     socket.on('disconnect', () => {
-        const username = players[id]
+        const username = users[id]
         io.to(socket.room).emit('userLeave', username)
 
         io.in(socket.room).clients((err, clients) => {
             io.to(socket.room).emit('connectedCount', clients.length)
         })
 
-        delete players[id]
+        delete users[id]
     })
 
     console.log('a user connected')

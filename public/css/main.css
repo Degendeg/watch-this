@@ -1,0 +1,155 @@
+html,
+body {
+  font-family: 'Roboto';
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+main {
+  flex: 1 0 auto;
+}
+
+main .container {
+  margin-top: 50px;
+}
+
+#video-info,
+#user-info {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#video-info li p,
+#user-info li p {
+  font-weight: 100;
+  font-size: 20px;
+}
+
+h3,
+h4 {
+  color: rgb(63, 81, 181);
+  font-size: 28px;
+}
+
+h4 {
+  margin-top: 50px;
+}
+
+.controls {
+  margin-top: 15px;
+}
+
+.controls .btn {
+  background-color: #00BCD4;
+}
+
+.controls .timeline {
+  padding: 1px 0 1px 0;
+}
+
+.controls .timeline .line {
+  margin-top: 18px;
+  border: 0;
+  border-top: 1px solid #343a40;
+  position: relative;
+}
+
+.controls .timeline .dot {
+  margin-top: -7px;
+  height: 13px;
+  width: 13px;
+  position: relative;
+  border-width: 2px;
+  border-radius: 100px;
+  background-color: #343a40;
+  border-style: solid;
+  left: 0%;
+}
+
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#search-input:focus::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#search-input {
+  color: #fff;
+}
+
+#search-input:focus {
+  color: #000;
+}
+
+.modal {
+  width: 15%;
+}
+
+.modal-close {
+  float: right;
+  margin-bottom: 0.9em;
+  margin-right: 0.8em;
+}
+
+.modal form {
+  margin-top: 55px;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1669px) and (min-width: 768px) {
+  .modal {
+    width: 30%;
+  }
+}
+
+#user-list {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#user-list .subtitle {
+  font-weight: 100;
+}
+
+.inline-icon {
+  vertical-align: bottom;
+}
+
+.yt-player {
+  width: 100%;
+  height: 480px;
+}
+
+@media screen and (max-width: 450px) {
+  .yt-player {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .yt-player {
+    width: 100%;
+    height: 325px;
+  }
+}
+
+.volume-slider .range-field {
+  margin: 0;
+  margin-top: 3px;
+}
+
+.volume-slider .thumb .value {
+  background-color: #00BCD4;
+}

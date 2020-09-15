@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../../favicon.ico">
+      <title>WatchIt</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+      <link href="css/main.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   
+   <body>
+      <div id="username-dialog" class="modal">
+         <div class="modal-content">
+            <h4>Type in your desired name</h4>
+            <form action="#">
+               <div class="input-field">
+                  <input type="text" class="validate" id="username-input" autocomplete="off">
+                  <label for="username-input">Username</label>
+               </div>
+            </form>
+         </div>
+		 <a class="waves-effect waves-light btn modal-close">Enter</a>
+      </div>
+      <header>
+         <nav>
+            <div class="nav-wrapper blue lighten-2">
+               <form>
+                  <div class="input-field">
+                     <input type="search" id="search-input" name="search-input" placeholder="B6GUPLAZZAQ" autocomplete="off" required>
+                     <label for="search-input" class="label-icon"><i class="material-icons">search</i></label>
+                     <i class="material-icons">close</i>
+                  </div>
+               </form>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="container">
+            <!-- Player UI -->
+            <div class="row">
+               <div class="col s12 m12 l8">
+                  <div id="player-ui">
+                     <div class="my-auto">
+                        <div id="player" class="yt-player"></div>
+                        <div class="controls">
+                           <div class="row">
+                              <!-- Control buttons -->
+                              <div class="col s2 m1 l1">
+                                 <a id="play-btn" class="waves-effect waves-light btn">
+                                 <i class="material-icons">play_arrow</i>
+                                 </a>
+                              </div>
+                              <div class="col s2 m1 l1">
+                                 <a id="sync-btn" class="waves-effect waves-light btn">
+                                 <i class="material-icons">sync</i>
+                                 </a>
+                              </div>
+                              <div class="col s2 m1 l1">
+                                 <a id="pause-btn" class="waves-effect waves-light btn">
+                                 <i class="material-icons">stop</i>
+                                 </a>
+                              </div>
+                              <div class="col s2 m2 l2">
+                                 <form action="#" class="volume-slider">
+                                    <p class="range-field">
+                                       <input type="range" id="volume" min="0" max="100">
+                                    </p>
+                                 </form>
+                              </div>
+                              <!-- Timeline -->
+                              <div class="col s6 m8 l8">
+                                 <div class="timeline">
+                                    <div class="line"></div>
+                                    <div class="dot"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col s12 m12 l3 offset-l1">
+                  <% if (locals.room) { %>
+                  <h3>Room:
+                     <%= room %>
+                  </h3>
+                  <% } %>
+                  <h4>Video information</h4>
+                  <!-- Video info -->
+                  <ul id="video-info" class="demo-list-item mdl-list">
+                     <li class="mdl-list__item">
+                        <p>Video title:
+                           <span id="video-title"></span>
+                        </p>
+                     </li>
+                     <li class="mdl-list__item">
+                        <p>Video ID:
+                           <span id="video-id"></span>
+                        </p>
+                     </li>
+                  </ul>
+                  <!-- /Video info -->
+                  <!-- User info -->
+                  <h4>User information</h4>
+                  <ul id="user-info">
+                     <li>
+                        <p>User watching:
+                           <span id="connected-count">0</span>
+                        </p>
+                     </li>
+                  </ul>
+                  <ul id="user-list"></ul>
+                  <!-- /User info -->
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="page-footer blue lighten-2">
+         <div class="container">
+            <div class="row">
+               <div class="col l4 offset-l2 s12">
+                  <ul>
+                     <li>
+						 <span class="grey-text text-lighten-3">Contact me:</span>
+						 <a class="grey-text text-lighten-3" href="mailto:sebbed89@hotmail.com">
+							<strong>sebbed89@hotmail.com</strong> 📧
+						 </a>
+					 </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </footer>
+	  
+      <script src="js/jquery.min.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script src="js/socket.io.js"></script>
+      <script src="js/client.io.js"></script>
+      <script src="js/main.js"></script>
+   </body>
+</html>

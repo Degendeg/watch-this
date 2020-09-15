@@ -1,0 +1,27 @@
+{
+  "name": "watch-this",
+  "version": "1.0.0",
+  "description": "watch a video in sync",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "degendeg",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "request": "^2.85.0",
+    "socket.io": "^2.1.0",
+    "tape": "^4.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}

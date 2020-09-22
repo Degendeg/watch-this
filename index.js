@@ -25,7 +25,6 @@ app.get('/:id', (req, res) => {
     const room = req.params['id']
 	io.on('connection', (socket) => {
 		let id = socket.id
-
 		joinRoom(socket, room)
 	})
 
@@ -65,6 +64,9 @@ io.on('connection', (socket) => {
                 break
 			case 'sync':
                 broadcastToRoom(socket.room, 'syncVideo')
+                break
+            case 'search':
+                io.to(socket.room).emit('searchVideo', data.videoId)
                 break
         }
     })
@@ -107,7 +109,7 @@ io.on('connection', (socket) => {
 })
 
 function guid() {
-    function s4() {
+    const s4 = () => {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();

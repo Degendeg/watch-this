@@ -14,7 +14,7 @@
       <link href="css/main.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
-   
+
    <body>
       <div id="username-dialog" class="modal">
          <div class="modal-content">
@@ -26,14 +26,14 @@
                </div>
             </form>
          </div>
-		 <a class="waves-effect waves-light btn modal-close">Enter</a>
+         <a class="waves-effect waves-light btn blue-grey modal-close">Enter</a>
       </div>
       <header>
          <nav>
             <div class="nav-wrapper blue-grey lighten-2">
                <form>
                   <div class="col s1 input-field">
-                     <input type="search" id="search-input" name="search-input" placeholder="B6GUPLAZZAQ" autocomplete="off" required>
+                     <input type="search" id="search-input" name="search-input" placeholder="AIbVkym1o2U" autocomplete="off" required>
                      <label for="search-input" class="label-icon"><i class="material-icons">search</i></label>
                      <i class="material-icons">close</i>
                   </div>
@@ -45,7 +45,7 @@
          <div class="container">
             <!-- Player UI -->
             <div class="row">
-               <div class="col s10">
+               <div class="col s12">
                   <div id="player-ui">
                      <div class="my-auto">
                         <div id="player" class="yt-player"></div>
@@ -70,7 +70,7 @@
                               <div class="col s2 m2 l2">
                                  <form action="#" class="volume-slider">
                                     <p class="range-field">
-                                       <input type="range" id="volume" min="0" max="100" value="30">
+                                       <input type="range" id="volume" min="0" max="100" value="20">
                                     </p>
                                  </form>
                               </div>
@@ -86,51 +86,45 @@
                      </div>
                   </div>
                </div>
-               <div class="col s4">
-				  <div class="card blue-grey lighten-2">
-					<div class="card-content white-text">
-							  <% if (locals.room) { %>
-							  <h5>Room: 
-							  <br><br>
-								 <%= room %>
-							  </h5>
-							  <% } %>
-					</div>
-				  </div>
-				  <div class="card blue-grey lighten-2">
-					<div class="card-content white-text">
-                  <h4>Video information</h4>
-                  <ul id="video-info" class="demo-list-item mdl-list">
-                     <li class="mdl-list__item">
-                        <p><strong>Video title:</strong>
-                           <span id="video-title"></span>
-                        </p>
-                     </li>
-					 <br>
-                     <li class="mdl-list__item">
-                        <p><strong>Video ID:</strong>
-                           <span id="video-id"></span>
-                        </p>
-                     </li>
-                  </ul>
-					</div>
-				  </div>
+               <div class="col s6">
+                  <div class="card blue-grey lighten-2">
+                     <div class="card-content white-text">
+                        <% if (locals.room) { %>
+                           <h5>Room</h5>
+                           <%= room %>
+                        <% } %>
+                        <h5>Video information</h5>
+                        <ul id="video-info" class="demo-list-item mdl-list">
+                           <li class="mdl-list__item">
+                              <p><strong>Video title:</strong>
+                                 <span id="video-title"></span>
+                              </p>
+                           </li>
+                           <br>
+                           <li class="mdl-list__item">
+                              <p><strong>Video ID:</strong>
+                                 <span id="video-id"></span>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
                </div>
-			   <div class="col s6">
-				  <div class="card blue-grey lighten-2">
-					<div class="card-content white-text">
-					  <h4>User information</h4>
-					  <ul id="user-info">
-						 <li>
-							<p><strong>Users:</strong>
-							   <span id="connected-count">0</span>
-							</p>
-						 </li>
-					  </ul>
-					  <ul id="user-list"></ul>
-					</div>
-				  </div>
-			   </div>
+               <div class="col s6">
+                  <div class="card blue-grey lighten-2">
+                     <div class="card-content white-text">
+                        <h5>User information</h5>
+                        <ul id="user-info">
+                           <li>
+                              <p><strong>Users:</strong>
+                                 <span id="connected-count">0</span>
+                              </p>
+                           </li>
+                        </ul>
+                        <ul id="user-list"></ul>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </main>
@@ -140,21 +134,21 @@
                <div class="col s1 s12">
                   <ul>
                      <li>
-						 <span class="grey-text text-lighten-3">Contact me:</span>
-						 <a class="grey-text text-lighten-3" href="mailto:sebbed89@hotmail.com">
-							<strong>sebbed89@hotmail.com</strong> 📧
-						 </a>
-					 </li>
+                        <span class="grey-text text-lighten-3">Contact me:</span>
+                        <a class="grey-text text-lighten-3" href="mailto:sebbed89@hotmail.com">
+                        <strong>sebbed89@hotmail.com</strong> 📧
+                        <p>&copy; <%= new Date().getFullYear(); %> | Sebastian Degerman</p>
+                        </a>
+                     </li>
                   </ul>
                </div>
             </div>
          </div>
       </footer>
-	  
+
       <script src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
       <script src="js/socket.io.js"></script>
-      <script src="js/client.io.js"></script>
       <script src="js/main.js"></script>
    </body>
 </html>

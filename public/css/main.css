@@ -39,8 +39,8 @@ h4 {
   font-size: 2em;
 }
 
-h4 {
-  margin-top: 50px;
+.card {
+  min-height: 325px;
 }
 
 .controls {

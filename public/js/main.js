@@ -203,8 +203,8 @@ function onPauseClicked() {
 
 function onSearchEntered() {
   socket.emit('playerEvent', {
-	'event': 'search',
-	'videoId': searchInput.val()
+    'event': 'search',
+    'videoId': searchInput.val()
   });
 }
 

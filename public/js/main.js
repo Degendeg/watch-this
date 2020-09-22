@@ -20,11 +20,15 @@ socket.on('syncVideo', () => {
 });
 
 socket.on('searchVideo', (videoId) => {
+  $("#player-ui").LoadingOverlay("show");
   player.cueVideoById(videoId);
   setTimeout(() => {
-    changeVideoInformation();
-    player.playVideo();
+	$("#player-ui").LoadingOverlay("hide", true);
+	player.playVideo();
   }, 2000);
+  setTimeout(() => {
+	changeVideoInformation();
+  }, 3000)
 });
 
 socket.on('playVideo', () => {
@@ -36,7 +40,11 @@ socket.on('timelineClick', (timelineClick) => {
 });
 
 $('.modal-close').click(() => {
-  const usernameInput = $('#username-input').val();
+  let usernameInput = $('#username-input').val();
+  // If empty, just generate a random one
+  if (!usernameInput) {
+    usernameInput = Math.random().toString(36).substring(7);
+  }
   socket.emit('userJoin', usernameInput);
 });
 
@@ -181,11 +189,11 @@ const onSearchEntered = () => {
 
 $(document).ready(function() {
   $('.modal').modal();
-  
+
   $('#username-dialog').modal({
     dismissible: false,
   });
-  
+
   $('#username-dialog').modal('open');
 
   $('#username-input').on('input', function() {

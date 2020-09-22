@@ -30,8 +30,8 @@ socket.on('syncVideo', () => {
 socket.on('searchVideo', (videoId) => {
   player.cueVideoById(videoId);
   setTimeout(() => {
-	changeVideoInformation();
-	player.playVideo();
+    changeVideoInformation();
+    player.playVideo();
   }, 2000);
 });
 
@@ -227,8 +227,8 @@ $(document).ready(function() {
       e.preventDefault();
       if (searchInput.val().length == 0) {
         return;
-	  }
-	  onSearchEntered();
+      }
+      onSearchEntered();
     }
   });
 });

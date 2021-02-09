@@ -1,1 +1,1 @@
-call npm start
+call npm run dev
